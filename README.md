@@ -154,5 +154,5 @@ implementation 'com.google.mlkit:text-recognition:16.0.0'
 ---
 
 **Versão**: 1.0.0  
-**Última atualização**: Janeiro 2025  
+**Última atualização**: Agosto 2025  
 **Compatibilidade**: Android 7.0+

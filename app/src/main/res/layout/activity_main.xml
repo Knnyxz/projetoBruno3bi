@@ -36,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="📷 Câmera"
+            android:text="Câmera"
             android:layout_marginEnd="8dp" />
 
         <Button
@@ -44,7 +44,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="🖼️ Galeria"
+            android:text="Galeria"
             android:layout_marginStart="8dp" />
 
     </LinearLayout>

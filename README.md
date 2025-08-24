@@ -29,7 +29,7 @@ Um aplicativo Android que utiliza reconhecimento óptico de caracteres (OCR) par
 
 1. **Clone o repositório**:
    ```bash
-   git clone [URL_DO_REPOSITORIO]
+   git clone https://github.com/Knnyxz/projetoBruno3bi
    cd projetoBruno3
    ```
 

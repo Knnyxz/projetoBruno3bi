@@ -7,7 +7,7 @@ import android.os.Build
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
-import android.speech.tts.TextToSpeech
+import android.speech.tts.TextToSpeech //******
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -16,9 +16,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+//******
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+//******
 import java.util.*
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private lateinit var btnSpeakText: Button
     private lateinit var tvRecognizedText: TextView
     private lateinit var ivSelectedImage: ImageView
+    private lateinit var cardImage: androidx.cardview.widget.CardView
     private lateinit var textToSpeech: TextToSpeech
     private var recognizedText = ""
     
@@ -43,7 +46,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             imageBitmap?.let {
                 // Exibir a imagem no ImageView
                 ivSelectedImage.setImageBitmap(it)
-                ivSelectedImage.visibility = android.view.View.VISIBLE
+                cardImage.visibility = android.view.View.VISIBLE
                 processImageForText(it)
             }
         }
@@ -59,7 +62,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                     val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, uri)
                     // Exibir a imagem no ImageView
                     ivSelectedImage.setImageBitmap(bitmap)
-                    ivSelectedImage.visibility = android.view.View.VISIBLE
+                    cardImage.visibility = android.view.View.VISIBLE
                     processImageForText(bitmap)
                 } catch (e: Exception) {
                     Toast.makeText(this, "Erro ao carregar imagem: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -78,6 +81,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         btnSpeakText = findViewById(R.id.btnSpeakText)
         tvRecognizedText = findViewById(R.id.tvRecognizedText)
         ivSelectedImage = findViewById(R.id.ivSelectedImage)
+        cardImage = findViewById(R.id.cardImage)
         
         // Inicializar Text-to-Speech
         textToSpeech = TextToSpeech(this, this)
@@ -106,6 +110,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             )
         } else {
             captureImage()
+
         }
     }
     
